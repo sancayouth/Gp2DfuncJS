@@ -3,8 +3,7 @@ function Gp2dfunc(options) {
     this.X = options.X;
     this.Y = options.Y;
     this.ctx = this.canvas.getContext('2d');
-    this.ctx.strokeStyle = '#000';
-    this.lineWidth = 2;
+    this.ctx.strokeStyle = '#000';    
     this.range = {
         X: 0,
         Y: 0
@@ -21,25 +20,21 @@ function Gp2dfunc(options) {
 
 }
 
-Gp2dfunc.prototype.drawX = function() {
-    var ctx = this.ctx;
-    ctx.save();
+Gp2dfunc.prototype.drawAxis = function() {    
+    var ctx = this.ctx;        
     ctx.beginPath();
+    //ctx.save();
+    //draws X axis
     ctx.moveTo(0, this.center.Y);
-    ctx.lineTo(this.canvas.width, this.center.Y);    
-    ctx.stroke();
-}
-
-Gp2dfunc.prototype.drawY = function() {
-    var ctx = this.ctx;
-    ctx.save();
-    ctx.beginPath();
+    ctx.lineTo(this.canvas.width, this.center.Y);        
+    //draws Y axis        
     ctx.moveTo(this.center.X, 0);
     ctx.lineTo(this.center.X, this.canvas.height);        
     ctx.stroke();
+    
 }
 
+
 Gp2dfunc.prototype.render = function() {
-    this.drawX();
-    this.drawY();
+    this.drawAxis();
 }
