@@ -33,11 +33,11 @@ Gp2dfunc.prototype.drawAxis = function() {
     ctx.lineTo(this.center.X, this.canvas.height);
     ctx.stroke();
     //draws ticks in Y axis             
-    var position = this.canvas.height - this.increment;    
+    var position = this.canvas.height - this.increment;
     var initPos = this.center.X - this.tickSize / 2;
     var unit = -1 * (Math.round((this.canvas.height / this.increment) / 2) - 1);
     ctx.textAlign = 'right';
-    ctx.fillText('-Y', initPos + this.tickSize +10, (position + this.increment)-5);  
+    ctx.fillText('-Y', initPos + this.tickSize + 10, (position + this.increment) - 5);
     while (position > 0) {
         ctx.moveTo(initPos, position);
         ctx.lineTo(initPos + this.tickSize, position);
@@ -48,16 +48,14 @@ Gp2dfunc.prototype.drawAxis = function() {
         unit += 1;
         position = Math.round(position - this.increment);
     }
-    ctx.fillText('Y', initPos + this.tickSize + 8, (position + this.increment)-15);      
+    ctx.fillText('Y', initPos + this.tickSize + 8, (position + this.increment) - 15);
     //draws ticks in X axis
     initPos = this.center.Y - this.tickSize / 2;
     unit = Math.round((this.canvas.width / this.increment) / 2) - 1;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'top';
-    
     position = this.canvas.width - this.increment;
-  
-    ctx.fillText('X', position + this.increment -10 , initPos -12);
+    ctx.fillText('X', position + this.increment - 10, initPos - 12);
     while (position > 0) {
         ctx.moveTo(position, initPos);
         ctx.lineTo(position, initPos + this.tickSize);
@@ -68,9 +66,27 @@ Gp2dfunc.prototype.drawAxis = function() {
         unit -= 1;
         position = Math.round(position - this.increment);
     }
-    ctx.fillText('-X', position + this.increment -20 , initPos -12);
+    ctx.fillText('-X', position + this.increment - 20, initPos - 12);
+    //draw arrows
+    ctx.beginPath();
+    ctx.moveTo(0, this.center.Y);
+    ctx.lineTo(this.tickSize, this.center.Y + this.tickSize);
+    ctx.lineTo(this.tickSize, this.center.Y - this.tickSize);
+    ctx.fill();
+    ctx.moveTo(this.canvas.width, this.center.Y);
+    ctx.lineTo(this.canvas.width - this.tickSize, this.center.Y + this.tickSize);
+    ctx.lineTo(this.canvas.width - this.tickSize, this.center.Y - this.tickSize);
+    ctx.fill();
+    ctx.moveTo(this.center.X, 0);
+    ctx.lineTo(this.center.X + this.tickSize,  this.tickSize);
+    ctx.lineTo(this.center.X - this.tickSize, this.tickSize);
+    ctx.fill();
+    ctx.moveTo(this.center.X, this.canvas.height);
+    ctx.lineTo(this.center.X + this.tickSize,  this.canvas.height-this.tickSize);
+    ctx.lineTo(this.center.X - this.tickSize,  this.canvas.height-this.tickSize);
+    ctx.fill();
+    ctx.save();
 }
-
 
 Gp2dfunc.prototype.render = function() {
     this.drawAxis();
