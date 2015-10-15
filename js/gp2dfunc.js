@@ -73,7 +73,10 @@ Gp2dfunc.prototype.drawAxis = function() {
         position = Math.round(position - this.increment);
     }
     this.ctx.fillText('-X', position + this.increment - 20, initPos - 12);
-    this.ctx.restore();
+    this.ctx.restore();        
+}
+
+Gp2dfunc.prototype.drawArrows = function(callback) {
     //draw arrows
     this.ctx.save();
     this.ctx.beginPath();
@@ -116,4 +119,5 @@ Gp2dfunc.prototype.drawEquation = function(callback) {
 
 Gp2dfunc.prototype.render = function() {
     this.drawAxis();
+    this.drawArrows();
 }
