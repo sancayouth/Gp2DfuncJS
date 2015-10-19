@@ -73,7 +73,7 @@ Gp2dfunc.prototype.drawAxis = function() {
         position = Math.round(position - this.increment);
     }
     this.ctx.fillText('-X', position + this.increment - 20, initPos - 12);
-    this.ctx.restore();        
+    this.ctx.restore();
 }
 
 Gp2dfunc.prototype.drawArrows = function(callback) {
@@ -99,20 +99,20 @@ Gp2dfunc.prototype.drawArrows = function(callback) {
     this.ctx.restore();
 }
 
-Gp2dfunc.prototype.drawEquation = function(callback) {    
-    this.ctx.save();    
+Gp2dfunc.prototype.drawEquation = function(callback) {
+    this.ctx.save();
     this.ctx.translate(this.center.X, this.center.Y);
-    var scale = this.canvas.width / this.range.X;        
+    var scale = this.canvas.width / this.range.X;
     this.ctx.scale(scale, -scale);
-  
+
     this.ctx.beginPath();
-    this.ctx.lineJoin = 'round';    
-    this.ctx.moveTo(this.X.min, callback(this.X.min));    
-    for (var x = this.X.min + 0.1; x <= this.X.max; x += 0.1) {        
-        this.ctx.lineTo(x, callback(x));        
+    this.ctx.lineJoin = 'round';
+    this.ctx.moveTo(this.X.min, callback(this.X.min));
+    for (var x = this.X.min + 0.1; x <= this.X.max; x += 0.1) {
+        this.ctx.lineTo(x, callback(x));
     }
     this.ctx.restore();
-    this.ctx.strokeStyle = 'red';         
+    this.ctx.strokeStyle = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
     this.ctx.stroke();
     this.ctx.restore();
 }
