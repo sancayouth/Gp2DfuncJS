@@ -16,8 +16,15 @@
         Y: {min: -10,max:10}        
       });    
     graphic.drawEquation(function(x) {
-        return x*x;
+        return (x*x)-1;
       });
+    graphic.drawEquation(function(x) {
+        return -1*((x*x)-1);
+      });
+    graphic.drawEquation(function(x) {
+        return Math.sin(x);
+      });
+    
   </script>
 </body>
 </html>
