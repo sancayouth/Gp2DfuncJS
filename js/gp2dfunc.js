@@ -1,4 +1,11 @@
+/**
+ * Gp2dfunc.js
+ *
+ * Licensed under the MIT license.
+ */
+
 function Gp2dfunc(options) {
+	'use strict';
     this.canvas = document.getElementById(options.id);
     if (this.canvas.getContext) {
         this.X = options.X;
