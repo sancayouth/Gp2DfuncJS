@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gp2dfunc</title>
   <meta name="author" content="SancaYouth" />
 </head>
 <body>
-  <canvas id="funcCanvas" width="600" height="600">    
+  <canvas id="funcCanvas" width="600" height="600">
   </canvas>
   <script type="text/javascript" src="js/gp2dfunc.js"></script>
   <script>
-    var graphic = new Gp2dfunc({
+    let graphic = new Gp2dfunc({
         id: "funcCanvas",
         X: {min: -10,max:10},
-        Y: {min: -10,max:10}        
-      });    
+        Y: {min: -10,max:10}
+      });
     graphic.drawEquation(function(x) {
         return (x*x)-1;
       });
@@ -24,7 +25,6 @@
     graphic.drawEquation(function(x) {
         return Math.sin(x);
       });
-    
   </script>
 </body>
 </html>
