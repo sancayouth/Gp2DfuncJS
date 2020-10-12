@@ -13,18 +13,13 @@
   <script>
     let graphic = new Gp2dfunc({
         id: "funcCanvas",
-        X: {min: -10,max:10},
-        Y: {min: -10,max:10}
+        X: { min: -10, max:10 },
+        Y: { min: -10, max:10 }
       });
-    graphic.drawEquation(function(x) {
-        return (x*x)-1;
-      });
-    graphic.drawEquation(function(x) {
-        return -1*((x*x)-1);
-      });
-    graphic.drawEquation(function(x) {
-        return Math.sin(x);
-      });
+    graphic.drawEquation( x => (x*x)-1 );
+    graphic.drawEquation( x => -1*((x*x)-1) );
+    graphic.drawEquation( x => Math.sin(x) - 1 );
+    graphic.drawEquation( x => Math.cos(x) + 1 );
   </script>
 </body>
 </html>
